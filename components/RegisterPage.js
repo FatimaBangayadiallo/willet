@@ -8,12 +8,14 @@ import {
   StyleSheet,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const RegisterPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
   return (
     <View style={styles.mereContainer}>
       <View style={styles.child1}>
@@ -73,11 +75,14 @@ const RegisterPage = () => {
             />
             <Text style={{ fontWeight: "bold", color: "#7882A4" }}>
               I accept the{" "}
-              <Text style={{ color: "#2FA4FF" }}>Term of Use </Text> &{" "}
+              <Text style={{ color: "#2FA4FF" }}>Term of Use </Text> &
               <Text style={{ color: "#2FA4FF" }}>Privacy Polycy</Text>
             </Text>
           </View>
-          <TouchableOpacity style={styles.Inner4}>
+          <TouchableOpacity
+            style={styles.Inner4}
+            onPress={() => navigation.navigate("Choise")}
+          >
             <Text style={{ color: "#fff", fontSize: 19 }}>Sign Up</Text>
           </TouchableOpacity>
         </View>

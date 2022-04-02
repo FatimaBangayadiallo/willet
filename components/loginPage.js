@@ -9,10 +9,12 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSelected, setSelection] = useState(false);
+  const navigation = useNavigation();
   return (
     <View style={styles.motherContainer}>
       <View style={styles.child1}>
@@ -21,7 +23,6 @@ const LoginPage = () => {
             Login
           </Text>
           <Text style={{ fontSize: 15, color: "#0E185F" }}>
-            {" "}
             Please login to continue
           </Text>
         </View>
@@ -62,7 +63,10 @@ const LoginPage = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.child3}>
+      <TouchableOpacity
+        style={styles.child3}
+        onPress={() => navigation.navigate("Choise")}
+      >
         <Text>LOGIN</Text>
       </TouchableOpacity>
 
